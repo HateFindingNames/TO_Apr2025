@@ -1,0 +1,22 @@
+# Source the PDK xschemrc file
+source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+
+#### Flush any previous definition
+#set XSCHEM_LIBRARY_PATH {}
+#### include devices/*.sym
+#append XSCHEM_LIBRARY_PATH :${XSCHEM_SHAREDIR}/xschem_library/devices
+#append XSCHEM_LIBRARY_PATH :${XSCHEM_SHAREDIR}/xschem_library
+append XSCHEM_LIBRARY_PATH :[file dirname [info script]]
+#append XSCHEM_LIBRARY_PATH :$USER_CONF_DIR/xschem_library
+
+###########################################################################
+#### SET CUSTOM COLORS FOR XSCHEM LIBRARIES MATCHING CERTAIN PATTERNS
+###########################################################################
+#### each line contains a dircolor(pattern) followed by a color
+#### color can be an ordinary name (grey, brown, blue) or a hex code {#77aaff}
+#### hex code must be enclosed in braces
+array unset dircolor
+set dircolor(sg13g2_pr$) blue
+set dircolor(sg13g2_tests$) blue
+set dircolor(xschem_library$) red
+set dircolor(devices$) red
